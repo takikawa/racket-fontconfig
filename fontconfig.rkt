@@ -1,7 +1,7 @@
 #lang racket/base
 
 (require ffi/unsafe
-         ffi/unsafe/define
+         ffi-definer-convention
          
          (for-syntax racket/base
                      racket/string
@@ -10,7 +10,9 @@
 
 (define fc-lib (ffi-lib "libfontconfig"))
 
-(define-ffi-definer define-fc fc-lib)
+(define-ffi-definer define-fc fc-lib
+  #:make-c-id make-c-id
+  #:provide provide)
 
 (define-cpointer-type _FcPattern)
 (define-cpointer-type _FcObjectSet)
@@ -64,11 +66,7 @@
 (define-syntax (define-fc-functions stx)
   (syntax-parse stx
     [(_ [racket-name:id c-type:expr] ...)
-     (define/with-syntax (c-id ...)
-       (map make-c-id (syntax->list #'(racket-name ...))))
-     #`(begin (define-fc racket-name c-type #:c-id c-id)
-              ...
-              (provide racket-name)
+     #`(begin (define-fc racket-name c-type)
               ...)]))
 
 (define-for-syntax (make-c-id id)
