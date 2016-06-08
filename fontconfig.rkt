@@ -11,7 +11,7 @@
 (define fc-lib (ffi-lib "libfontconfig"))
 
 (define-ffi-definer define-fc fc-lib
-  #:make-c-id make-c-id
+  #:make-c-id convention:hyphen->camelcase
   #:provide provide)
 
 (define-cpointer-type _FcPattern)
@@ -68,12 +68,6 @@
     [(_ [racket-name:id c-type:expr] ...)
      #`(begin (define-fc racket-name c-type)
               ...)]))
-
-(define-for-syntax (make-c-id id)
-  (define str (symbol->string (syntax-e id)))
-  (format-id id
-             (apply string-append
-                    (map string-titlecase (string-split str "-")))))
 
 (define-fc-functions
  [fc-init-load-config           (_fun -> _FcConfig)]
