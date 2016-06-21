@@ -1,6 +1,6 @@
 #lang racket
 
-(require "fontconfig.rkt")
+(require fontconfig)
 
 (fc-config-get-fonts (fc-config-get-current)
                      'fc-set-application)
