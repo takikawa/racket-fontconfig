@@ -11,4 +11,4 @@ Install:
 
 Copyright © 2016-2019 Asumu Takikawa.
 
-See [COPYING] for the license
+See [COPYING](COPYING) for the license
