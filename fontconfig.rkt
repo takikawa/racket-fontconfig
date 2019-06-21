@@ -279,7 +279,7 @@
  [fc-str-set-del                  (_fun _FcStrSet _bytes -> _bool)]
  [fc-str-set-destroy              (_fun _FcStrSet -> _void)]
  [fc-str-list-create              (_fun _FcStrSet -> _FcStrList)]
- [fc-str-list-first               (_fun _FcStrList -> _bytes)]
+ [fc-str-list-first               (_fun _FcStrList -> _void)]
  [fc-str-list-next                (_fun _FcStrList -> _bytes)]
  [fc-str-list-done                (_fun _FcStrList -> _void)]
 
