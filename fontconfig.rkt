@@ -9,7 +9,7 @@
                      racket/syntax
                      syntax/parse))
 
-(define fc-lib (ffi-lib "libfontconfig"))
+(define fc-lib (ffi-lib "libfontconfig" '("1" #f)))
 
 (define-ffi-definer define-fc fc-lib
   #:make-c-id convention:hyphen->camelcase
