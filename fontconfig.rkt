@@ -1,8 +1,9 @@
 #lang racket/base
 
 (require ffi/unsafe
-         ffi-definer-convention
-         
+         ffi/unsafe/define
+         ffi/unsafe/define/conventions
+
          (for-syntax racket/base
                      racket/string
                      racket/syntax

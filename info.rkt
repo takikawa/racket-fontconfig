@@ -1,6 +1,5 @@
 #lang info
 
 (define collection "fontconfig")
-(define deps '("base"
-               ("ffi-definer-convention" #:version "0.2")))
-(define version 0.1)
+(define deps '(["base" #:version "6.9.0.5"]))
+(define version 0.2)
