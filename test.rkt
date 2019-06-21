@@ -1,6 +1,10 @@
 #lang racket
 
-(require fontconfig)
+(require fontconfig
+         rackunit)
+
+(check-equal? (normalize-path (find-system-path 'home-dir))
+              (normalize-path (fc-config-home)))
 
 (fc-config-get-fonts (fc-config-get-current)
                      'fc-set-application)
